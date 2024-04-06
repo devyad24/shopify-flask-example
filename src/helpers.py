@@ -62,7 +62,12 @@ def verify_webhook_call(f):
     return wrapper
 
 
+#Write assertion test
 def verify_hmac(data: bytes, orig_hmac: str):
+    print(f'Stripped Data: {data}\n')
+    print(f'HMAC: {orig_hmac}\n')
+    print(f'Shopify Secret: {SHOPIFY_SECRET}\n')
+    # print(f'{SHOPIFY_SECRET.encode('utf-8')}')
     new_hmac = hmac.new(
         SHOPIFY_SECRET.encode('utf-8'),
         data,
@@ -71,6 +76,7 @@ def verify_hmac(data: bytes, orig_hmac: str):
     return new_hmac.hexdigest() == orig_hmac
 
 
+#Write assertion test
 def is_valid_shop(shop: str) -> bool:
     # Shopify docs give regex with protocol required, but shop never includes protocol
     shopname_regex = r'[a-zA-Z0-9][a-zA-Z0-9\-]*\.myshopify\.com[\/]?'

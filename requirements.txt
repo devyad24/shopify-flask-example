@@ -1,3 +1,8 @@
-flask==1.1.2
+flask==3.0.2
 requests==2.23.0
 python-dotenv==0.15.0
+SQLAlchemy==2.0.29
+Flask-SqlAlchemy==3.1.1
+psycopg2-binary==2.9.9
+pytest
+requests-mock
